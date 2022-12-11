@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Login')
+@section('title', 'Gadget | Login')
 @section('content')
     <section class="vh-100" >
         <div class="container py-5 h-100">

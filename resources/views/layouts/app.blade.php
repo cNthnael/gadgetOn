@@ -44,6 +44,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
+                        @auth
                         <li class="nav-item">
                             <?php
                                 $checkout = \App\Models\Transaction::query()->where('user_id', optional(Auth::user())->id)->where('status', 0)->first();
@@ -60,6 +61,7 @@
                                 @endif
                             </a>
                         </li>
+                        @endauth
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
