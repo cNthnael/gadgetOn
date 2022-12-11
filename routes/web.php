@@ -13,12 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+
+Route::get('/', function (){
+    return view('auth/register');
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::get('detail/{id}', [\App\Http\Controllers\DetailController::class, 'index'])->name('detail.view');
 Route::post('detail/{id}', [\App\Http\Controllers\DetailController::class, 'checkout']);
+
+Route::get('cart', [\App\Http\Controllers\DetailController::class, 'cart']);
+Route::delete('cart/{id}', [\App\Http\Controllers\DetailController::class, 'delete']);
+Route::get('confirm-cart',[\App\Http\Controllers\DetailController::class, 'confirm']);

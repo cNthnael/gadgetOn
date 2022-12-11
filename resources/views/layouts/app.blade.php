@@ -44,6 +44,22 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
+                        <li class="nav-item">
+                            <?php
+                                $checkout = \App\Models\Transaction::query()->where('user_id', Auth::user()->id)->where('status', 0)->first();
+                                if (!empty($checkout))
+                                {
+                                    $notif = \App\Models\Cart::query()->where('transaction_id', $checkout->id)->count();
+                                }
+
+                            ?>
+                            <a class="nav-link" href="{{ url('cart') }}">
+                                <i class="fa fa-shopping-cart fa-xl"></i>
+                                @if(!empty($notif))
+                                <span class="badge rounded-pill text-bg-danger">{{ $notif }}</span>
+                                @endif
+                            </a>
+                        </li>
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">

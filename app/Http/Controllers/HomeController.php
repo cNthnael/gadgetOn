@@ -27,4 +27,9 @@ class HomeController extends Controller
         $products = Product::all();
         return view('home', compact('products'));
     }
+
+    public function showLogin()
+    {
+        return view('auth.passwords.register');
+    }
 }

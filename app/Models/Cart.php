@@ -9,11 +9,11 @@ class Cart extends Model
 {
     public function product()
     {
-        return $this->belongsTo('App\User','product_id', 'id');
+        return $this->belongsTo(Product::class);
     }
 
     public function transaction()
     {
-        return $this->belongsTo('App\Transaction','transaction_id', 'id');
+        return $this->belongsTo(Transaction::class);
     }
 }

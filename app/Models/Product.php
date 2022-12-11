@@ -9,6 +9,6 @@ class Product extends Model
 {
     public function cart()
     {
-        return $this->hasMany('App\Cart','product_id','id');
+        return $this->hasMany(Cart::class);
     }
 }

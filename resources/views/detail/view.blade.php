@@ -33,7 +33,7 @@
                                                     <form action="{{ url(('detail')) }}/{{ $detail->id }}" method="post">
                                                         <h6>Quantity : </h6>
                                                         @csrf
-                                                        <p><input type="text" name="quantity_check" class="form-control" required=""></p>
+                                                        <p><input type="text" name="quantity" class="form-control" required=""></p>
                                                         <button type="submit" class="btn btn-danger">Add to <i class="fa fa-shopping-cart"></i></button>
                                                     </form>
                                                 </tbody>
