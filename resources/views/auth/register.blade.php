@@ -90,16 +90,6 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="" class="col-md-4 col-form-label text-md-end"></label>
-                            <div class="col-md-6">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                    <label class="form-check-label" for="inlineCheckbox2"> Remember me </label>
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="d-grid gap-2" style="margin-top: 30px">
                             <div class="rounded d-flex justify-content-center">
                                 <div class="" align="center">
