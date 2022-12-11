@@ -102,13 +102,13 @@
 
                         <div class="d-grid gap-2" style="margin-top: 30px">
                             <div class="rounded d-flex justify-content-center">
-                                <div class="col-md-6 offset-md-4">
+                                <div class="" align="center">
                                     <button type="register" class="btn btn-danger">
                                         {{ ('Register') }}
                                     </button>
                                 </div>
                             </div>
-                            <div class="rounded d-flex justify-content-center">
+                            <div class="" align="center">
                                 <p>Already have an account? <a class="text-danger text-decoration-none" href="{{ route('login') }}">Sign In</a></p>
                             </div>
                         </div>

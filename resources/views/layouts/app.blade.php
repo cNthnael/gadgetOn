@@ -46,7 +46,7 @@
                         <!-- Authentication Links -->
                         <li class="nav-item">
                             <?php
-                                $checkout = \App\Models\Transaction::query()->where('user_id', Auth::user()->id)->where('status', 0)->first();
+                                $checkout = \App\Models\Transaction::query()->where('user_id', optional(Auth::user())->id)->where('status', 0)->first();
                                 if (!empty($checkout))
                                 {
                                     $notif = \App\Models\Cart::query()->where('transaction_id', $checkout->id)->count();
