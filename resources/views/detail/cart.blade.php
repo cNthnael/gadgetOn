@@ -19,7 +19,7 @@
                     <div class="card-body">
                         <h3><i class="fa fa-shopping-cart"></i> Check Out </h3>
                         @if(!empty($transact))
-                        <p align="right">Order Date : {{ $transact->transaction_date }}</p>
+                        <p align="right">Order Date : {{ \Carbon\Carbon::parse($transact->transaction_date)->format('d F Y') }}</p>
                         <table class="table table-striped">
                             <thead>
                                 <tr>
@@ -48,7 +48,7 @@
                                            <form action="{{ url('cart') }}/{{ $c->id }}" method="post">
                                                @csrf
                                                {{ method_field('DELETE') }}
-                                                <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Do you want to remove this item from the cart?');"><i class="fa fa-trash"></i></button>
                                            </form>
                                        </td>
                                    </tr>
@@ -57,13 +57,19 @@
                                     <td colspan="5" align="right"><strong>Total Price :</strong></td>
                                     <td><strong>Rp. {{ number_format($transact->total_price) }}</strong></td>
                                     <td>
-                                        <a href="{{ url('confirm-cart') }}" class="btn btn-success">
+                                        <a href="{{ url('confirm-cart') }}" class="btn btn-success" onclick="return confirm('Confirm your checkout?')">
                                             <i class="fa fa-shopping-cart"></i> Check Out
                                         </a>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
+                        @else
+                            <div class="row justify-content-lg-center">
+                                <div class="col-md-12 mt-3 mb-2">
+                                    <h4 class="text" style="text-align: center">Cart is empty!</h4>
+                                </div>
+                            </div>
                         @endif
                     </div>
                 </div>

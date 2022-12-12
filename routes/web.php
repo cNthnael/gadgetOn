@@ -2,26 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-
-
 Route::get('/', function (){
-    return view('auth/register');
+    return view('auth/login');
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'index']);
+Route::post('profile', [\App\Http\Controllers\ProfileController::class, 'edit']);
 
 Route::get('detail/{id}', [\App\Http\Controllers\DetailController::class, 'index'])->name('detail.view');
 Route::post('detail/{id}', [\App\Http\Controllers\DetailController::class, 'checkout']);
@@ -29,3 +19,5 @@ Route::post('detail/{id}', [\App\Http\Controllers\DetailController::class, 'chec
 Route::get('cart', [\App\Http\Controllers\DetailController::class, 'cart']);
 Route::delete('cart/{id}', [\App\Http\Controllers\DetailController::class, 'delete']);
 Route::get('confirm-cart',[\App\Http\Controllers\DetailController::class, 'confirm']);
+
+ Route::get('history', [\App\Http\Controllers\HistoryController::class, 'index']);
