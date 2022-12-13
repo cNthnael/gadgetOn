@@ -25,21 +25,32 @@
                                 <td>:</td>
                                 <td>{{ $user->name }}</td>
                             </tr>
+                            @role('admin')
+                            <tr>
+                                <td>Role</td>
+                                <td>:</td>
+                                <td>Admin</td>
+                            </tr>
+                            @endrole
+                            @if(!\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
                             <tr>
                                 <td>Gender</td>
                                 <td>:</td>
                                 <td>{{ ucfirst($user->gender) }}</td>
                             </tr>
+                            @endif
                             <tr>
                                 <td>Email</td>
                                 <td>:</td>
                                 <td>{{ $user->email }}</td>
                             </tr>
+                            @if(!\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
                             <tr>
                                 <td>Address</td>
                                 <td>:</td>
                                 <td>{{ $user->address }}</td>
                             </tr>
+                            @endif
                             </tbody>
                         </table>
                     </div>
@@ -66,7 +77,7 @@
                                 @enderror
                             </div>
                         </div>
-
+                        @if(!\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
                         <div class="row mb-3">
                             <label for="" class="col-md-3 col-form-label text-md-end">{{ __('Gender') }}</label>
                             <div class="col-md-2" action="#">
@@ -77,21 +88,39 @@
                                 </select>
                             </div>
                         </div>
+                        @endif
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-3 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                        @if(\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
+                            <div class="row mb-3">
+                                <label for="email" class="col-md-3 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}" required autocomplete="email">
+                                <div class="col-md-6">
+                                    <input readonly id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}" required autocomplete="email">
 
-                                @error('email')
-                                <span class="invalid-feedback" role="alert">
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
+                        @else
+                            <div class="row mb-3">
+                                <label for="email" class="col-md-3 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
+                                <div class="col-md-6">
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}" required autocomplete="email">
+
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+                        @endif
+
+                        @if(!\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
                         <div class="row mb-3">
                             <label for="address" class="col-md-3 col-form-label text-md-end">{{ __('Address') }}</label>
 
@@ -105,6 +134,7 @@
                                 @enderror
                             </div>
                         </div>
+                        @endif
 
                         <div class="row mb-3">
                             <label for="password" class="col-md-3 col-form-label text-md-end">{{ __('Password') }}</label>

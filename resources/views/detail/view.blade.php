@@ -30,12 +30,20 @@
                                                         <br>
                                                         <h5>{{ $detail->release }}</h5>
                                                         <p>{{ $detail->desc }}</p>
+
+                                                        @if(!\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
                                                     <form action="{{ url(('detail')) }}/{{ $detail->id }}" method="post">
                                                         <h6>Quantity : </h6>
                                                         @csrf
                                                         <p><input type="text" name="quantity" class="form-control" required=""></p>
                                                         <button type="submit" class="btn btn-danger">Add to <i class="fa fa-shopping-cart"></i></button>
                                                     </form>
+                                                        @else
+                                                                @csrf
+                                                                <button href="#" class="btn btn-success me-2">Update Detail</button>
+                                                                <button href="#" class="btn btn-danger" onclick="return confirm('Do you want to remove this item from the cart?');">Delete Phone</button>
+                                                            </form>
+                                                        @endif
                                                 </tbody>
                                             </table>
                                         </div>

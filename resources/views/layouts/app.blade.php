@@ -38,30 +38,26 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                        @role('admin')
+                        <div class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Manage Product <span class="caret"></span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">
+                                    Add
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    Update
+                                </a>
+                            </div>
+                        </div>
+                        @endrole
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
-                        @auth
-                        <li class="nav-item">
-                            <?php
-                                $checkout = \App\Models\Transaction::query()->where('user_id', optional(Auth::user())->id)->where('status', 0)->first();
-                                if (!empty($checkout))
-                                {
-                                    $notif = \App\Models\Cart::query()->where('transaction_id', $checkout->id)->count();
-                                }
-
-                            ?>
-                            <a class="nav-link" href="{{ url('cart') }}">
-                                <i class="fa fa-shopping-cart fa-xl"></i>
-                                @if(!empty($notif))
-                                <span class="badge rounded-pill text-bg-danger">{{ $notif }}</span>
-                                @endif
-                            </a>
-                        </li>
-                        @endauth
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -75,6 +71,23 @@
                                 </li>
                             @endif
                         @else
+                            @if(!\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
+                            <li class="nav-item">
+                                    <?php
+                                    $checkout = \App\Models\Transaction::query()->where('user_id', optional(Auth::user())->id)->where('status', 0)->first();
+                                    if (!empty($checkout))
+                                    {
+                                        $notif = \App\Models\Cart::query()->where('transaction_id', $checkout->id)->count();
+                                    }
+                                    ?>
+                                <a class="nav-link" href="{{ url('cart') }}">
+                                    <i class="fa fa-shopping-cart fa-xl"></i>
+                                    @if(!empty($notif))
+                                        <span class="badge rounded-pill text-bg-danger">{{ $notif }}</span>
+                                    @endif
+                                </a>
+                            </li>
+                            @endif
                             <div class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     Hi, {{ Auth::user()->name }} <span class="caret"></span>
@@ -85,9 +98,11 @@
                                         Profile
                                     </a>
 
+                                    @if(!\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
                                     <a class="dropdown-item" href="{{ url('history') }}">
                                         Checkout History
                                     </a>
+                                    @endif
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'GadgetOn | View Phone')
+@section('title', 'GadgetOn | Cart')
 @section('content')
     <div class="container">
         <div class="container mt-4 mb-4">
@@ -19,51 +19,51 @@
                     <div class="card-body">
                         <h3><i class="fa fa-shopping-cart"></i> Check Out </h3>
                         @if(!empty($transact))
-                        <p align="right">Order Date : {{ \Carbon\Carbon::parse($transact->transaction_date)->format('d F Y') }}</p>
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <td>No</td>
-                                    <td>Image</td>
-                                    <td>Product Name</td>
-                                    <td>Quantity</td>
-                                    <td>Price (per unit)</td>
-                                    <td>Total Price (per unit)</td>
-                                    <td>Action</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php $no = 1; ?>
-                                @foreach($cart as $c)
-                                   <tr>
-                                       <td>{{ $no++ }}</td>
-                                       <td>
-                                           <img src="{{ $c->product->image_path }}" width="150" alt="{{ $c->product->name }}">
-                                       </td>
-                                       <td>{{ $c->product->name }}</td>
-                                       <td>{{ $c->quantity }} unit</td>
-                                       <td>Rp. {{number_format($c->product->price)}}</td>
-                                       <td>Rp. {{number_format($c->total_price)}}</td>
-                                       <td>
-                                           <form action="{{ url('cart') }}/{{ $c->id }}" method="post">
-                                               @csrf
-                                               {{ method_field('DELETE') }}
-                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Do you want to remove this item from the cart?');"><i class="fa fa-trash"></i></button>
-                                           </form>
-                                       </td>
-                                   </tr>
-                                @endforeach
-                                <tr>
-                                    <td colspan="5" align="right"><strong>Total Price :</strong></td>
-                                    <td><strong>Rp. {{ number_format($transact->total_price) }}</strong></td>
-                                    <td>
-                                        <a href="{{ url('confirm-cart') }}" class="btn btn-success" onclick="return confirm('Confirm your checkout?')">
-                                            <i class="fa fa-shopping-cart"></i> Check Out
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                            @foreach($cart as $c)
+                                <p align="right">Order Date : {{ \Carbon\Carbon::parse($transact->transaction_date)->format('d F Y') }}</p>
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <td>No</td>
+                                        <td>Image</td>
+                                        <td>Product Name</td>
+                                        <td>Quantity</td>
+                                        <td>Price (per unit)</td>
+                                        <td>Total Price (per unit)</td>
+                                        <td>Action</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php $no = 1; ?>
+                                        <tr>
+                                            <td>{{ $no++ }}</td>
+                                            <td>
+                                                <img src="{{ $c->product->image_path }}" width="150" alt="{{ $c->product->name }}">
+                                            </td>
+                                            <td>{{ $c->product->name }}</td>
+                                            <td>{{ $c->quantity }} unit</td>
+                                            <td>Rp. {{number_format($c->product->price)}}</td>
+                                            <td>Rp. {{number_format($c->total_price)}}</td>
+                                            <td>
+                                                <form action="{{ url('cart') }}/{{ $c->id }}" method="post">
+                                                    @csrf
+                                                    {{ method_field('DELETE') }}
+                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Do you want to remove this item from the cart?');"><i class="fa fa-trash"></i></button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="5" align="right"><strong>Total Price :</strong></td>
+                                            <td><strong>Rp. {{ number_format($transact->total_price) }}</strong></td>
+                                            <td>
+                                                <a href="{{ url('confirm-cart') }}" class="btn btn-success" onclick="return confirm('Confirm your checkout?')">
+                                                    <i class="fa fa-shopping-cart"></i> Check Out
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            @endforeach
                         @else
                             <div class="row justify-content-lg-center">
                                 <div class="col-md-12 mt-3 mb-2">
@@ -78,5 +78,4 @@
         </div>
     </div>
 @endsection
-
 
