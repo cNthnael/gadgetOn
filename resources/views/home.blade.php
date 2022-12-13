@@ -14,7 +14,7 @@
                     <img src="{{ $p-> image_path }}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{$p->name}}</h5>
-                        <p class="card-text"><strong>Harga : </strong> Rp. {{number_format($p->price)}}</p>
+                        <p class="card-text"><strong>Price : </strong> Rp. {{number_format($p->price)}}</p>
                         <a href="{{ url('detail') }}/{{ $p->id }}" class="btn btn-danger">See Detail</i></a>
                     </div>
 
