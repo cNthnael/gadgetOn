@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="shortcut icon" type="image/x-icon" href="{{ url('images/icon.png') }}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url('images/favicon.ico') }}" />
     <title>@yield('title')</title>
 
     {{-- Styles --}}
@@ -26,68 +26,39 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ url('images/logo.png') }}" width="130" alt="">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        @auth()
+            @if(\Illuminate\Support\Facades\Auth::user()->is_admin)
+            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+                <div class="container">
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        <img src="{{ url('images/logo.png') }}" width="130" alt="">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-                        @role('admin')
-                        <div class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Manage Product <span class="caret"></span>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">
-                                    Add
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <!-- Left Side Of Navbar -->
+                        <ul class="navbar-nav me-auto">
+
+                            <div class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Manage Product <span class="caret"></span>
                                 </a>
-                                <a class="dropdown-item" href="#">
-                                    Update
-                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">
+                                        Add
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        Update
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        @endrole
-                    </ul>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
+                        </ul>
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            @if(!\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
-                            <li class="nav-item">
-                                    <?php
-                                    $checkout = \App\Models\Transaction::query()->where('user_id', optional(Auth::user())->id)->where('status', 0)->first();
-                                    if (!empty($checkout))
-                                    {
-                                        $notif = \App\Models\Cart::query()->where('transaction_id', $checkout->id)->count();
-                                    }
-                                    ?>
-                                <a class="nav-link" href="{{ url('cart') }}">
-                                    <i class="fa fa-shopping-cart fa-xl"></i>
-                                    @if(!empty($notif))
-                                        <span class="badge rounded-pill text-bg-danger">{{ $notif }}</span>
-                                    @endif
-                                </a>
-                            </li>
-                            @endif
+                        <!-- Right Side Of Navbar -->
+                        <ul class="navbar-nav ms-auto">
                             <div class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     Hi, {{ Auth::user()->name }} <span class="caret"></span>
@@ -97,12 +68,6 @@
                                     <a class="dropdown-item" href="{{ url('profile') }}">
                                         Profile
                                     </a>
-
-                                    @if(!\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
-                                    <a class="dropdown-item" href="{{ url('history') }}">
-                                        Checkout History
-                                    </a>
-                                    @endif
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -114,12 +79,109 @@
                                     </form>
                                 </div>
                             </div>
-                        @endguest
-                    </ul>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+            @else
+                <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+                    <div class="container">
+                        <a class="navbar-brand" href="{{ url('/') }}">
+                            <img src="{{ url('images/logo.png') }}" width="130" alt="">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
 
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <!-- Left Side Of Navbar -->
+                            <ul class="navbar-nav me-auto">
+
+                            </ul>
+
+                            <!-- Right Side Of Navbar -->
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item">
+                                        <?php
+                                        $checkout = \App\Models\Transaction::query()->where('user_id', optional(Auth::user())->id)->where('status', 0)->first();
+                                        if (!empty($checkout))
+                                        {
+                                            $notif = \App\Models\Cart::query()->where('transaction_id', $checkout->id)->count();
+                                        }
+                                        ?>
+                                    <a class="nav-link" href="{{ url('cart') }}">
+                                        <i class="fa fa-shopping-cart fa-xl"></i>
+                                        @if(!empty($notif))
+                                            <span class="badge rounded-pill text-bg-danger">{{ $notif }}</span>
+                                        @endif
+                                    </a>
+                                </li>
+
+                                <div class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        Hi, {{ Auth::user()->name }} <span class="caret"></span>
+                                    </a>
+
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ url('profile') }}">
+                                            Profile
+                                        </a>
+
+                                        <a class="dropdown-item" href="{{ url('history') }}">
+                                            Checkout History
+                                        </a>
+
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            @endif
+        @elseguest()
+            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+                <div class="container">
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        <img src="{{ url('images/logo.png') }}" width="130" alt="">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <!-- Left Side Of Navbar -->
+                        <ul class="navbar-nav me-auto">
+
+                        </ul>
+
+                        <!-- Right Side Of Navbar -->
+                        <ul class="navbar-nav ms-auto">
+                            <!-- Authentication Links -->
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        @endauth
         <main class="py-4">
             @yield('content')
         </main>

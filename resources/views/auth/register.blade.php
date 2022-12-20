@@ -4,7 +4,7 @@
     <div class="container-fluid vh-100">
         <div class="rounded d-flex justify-content-center">
             <div class="col-md-8 shadow-lg p-5 bg-light">
-                <div class="text-center">
+                <div class="text-center mb-3">
                     <h3 class="text-danger">Create Account</h3>
                 </div>
 

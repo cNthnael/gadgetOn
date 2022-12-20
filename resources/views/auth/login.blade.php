@@ -64,11 +64,9 @@
                                                 <button type="submit" class="btn btn-danger">
                                                     {{ __('Login') }}
                                                 </button>
-{{--                                                @if (Route::has('password.request'))--}}
-{{--                                                    <a class="btn btn-link-danger text-danger" href="{{ route('password.request') }}">--}}
-{{--                                                        {{ __('Forgot Your Password?') }}--}}
-{{--                                                    </a>--}}
-{{--                                                @endif--}}
+                                                    <a class="btn btn-link-danger text-danger" href="{{ route('register') }}">
+                                                        {{ __("Don't have an account?") }}
+                                                    </a>
                                             </div>
                                         </div>
                                     </form>
