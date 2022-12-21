@@ -40,21 +40,9 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav me-auto">
-
-                            <div class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    Manage Product <span class="caret"></span>
+                                <a href="{{ route('list') }}" class="btn btn-success btn-sm text-white float-start">
+                                    Manage Product
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('create') }}">
-                                        Add
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('update') }}">
-                                        Update
-                                    </a>
-                                </div>
-                            </div>
-
                         </ul>
 
                         <!-- Right Side Of Navbar -->

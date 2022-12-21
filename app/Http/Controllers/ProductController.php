@@ -80,13 +80,18 @@ class ProductController extends Controller
     public function create()
     {
         $products = Product::all();
-
         return view('admin.create', compact('products'));
     }
 
-    public function update()
+    public function store()
     {
-        return view('admin.update');
+
+    }
+
+    public function list()
+    {
+        $products = Product::all();
+        return view('admin.list', compact('products'));
     }
 
     public function delete($id)
