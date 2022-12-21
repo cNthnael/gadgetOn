@@ -14,12 +14,17 @@ Route::post('profile', [\App\Http\Controllers\ProfileController::class, 'edit'])
 
 //Product Detail
 Route::get('detail/{id}', [\App\Http\Controllers\DetailController::class, 'index'])->name('detail.view');
-Route::post('detail/{id}', [\App\Http\Controllers\DetailController::class, 'checkout']);
+Route::post('detail/{id}', [\App\Http\Controllers\ProductController::class, 'checkout']);
 
-//Cart
-Route::get('cart', [\App\Http\Controllers\DetailController::class, 'cart']);
-Route::delete('cart/{id}', [\App\Http\Controllers\DetailController::class, 'delete']);
-Route::get('confirm-cart',[\App\Http\Controllers\DetailController::class, 'confirm']);
+//Cart & Checkout
+Route::get('cart', [\App\Http\Controllers\ProductController::class, 'cart']);
+Route::delete('cart/{id}', [\App\Http\Controllers\ProductController::class, 'delete']);
+Route::get('confirm-cart',[\App\Http\Controllers\ProductController::class, 'confirm']);
 
 //History
 Route::get('history', [\App\Http\Controllers\HistoryController::class, 'index']);
+
+//Admin
+Route::get('create', [\App\Http\Controllers\ProductController::class, 'create'])->name('create');
+Route::get('update', [\App\Http\Controllers\ProductController::class, 'update'])->name('update');
+

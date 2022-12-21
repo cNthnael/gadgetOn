@@ -46,10 +46,10 @@
                                     Manage Product <span class="caret"></span>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('create') }}">
                                         Add
                                     </a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('update') }}">
                                         Update
                                     </a>
                                 </div>
