@@ -19,31 +19,32 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="mb-5">Product Manager
-                            <a href="{{ route('create') }}" class="btn btn-success mt-1 btn-sm text-white float-end"><i class="fa fa-plus"></i>
+                        <h3 class="mb-4">Product Manager
+                            <a href="{{ route('create') }}" class="btn btn-success mt-1 btn-sm text-white float-end shadow-sm"><i class="fa fa-plus"></i>
                                 Add Product
                             </a>
                         </h3>
-                        <table class="table table-striped">
-                            <thead>
+                        <table class="table">
+                            <thead class="bg-light text-dark">
                             <tr>
                                 <td>No</td>
                                 <td>Image</td>
                                 <td>Product Name</td>
                                 <td>Price</td>
-                                <td>Action</td>
+                                <td style="width: 200px;">Action</td>
                             </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="bg-white">
                             @foreach($products as $p)
                             <tr>
-                                <td>{{ $p->id}}</td>
+                                <td>{{$loop->iteration}}</td>
                                 <td>
                                     <img src="{{ $p->image_path }}" width="150" alt="{{ $p->name }}">
                                 </td>
                                 <td>{{ $p->name }}</td>
                                 <td>Rp. {{number_format($p->price)}}</td>
-                                <td>
+                                <td class="d-flex justify-content-center border-0">
+                                    <a href="{{ url(('detail')) }}/{{ $p->id }}" class="btn btn-success btn-sm me-2"><i class="fa fa-info"></i></a>
                                     <form action="{{ url('list') }}/{{ $p->id }}" method="post">
                                         @csrf
                                         {{ method_field('DELETE') }}

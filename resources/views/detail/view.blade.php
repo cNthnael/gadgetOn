@@ -34,7 +34,7 @@
                                                 <p>{{ $detail->desc }}</p>
 
                                                     <form action="{{ url(('detail')) }}/{{ $detail->id }}" method="post">
-                                                    @csrf
+                                                        @csrf
                                                         <button href="#" class="btn btn-success me-2">Update Detail</button>
                                                     </form>
                                                     <form action="{{ url('list') }}/{{ $detail->id }}" method="post">
