@@ -44,10 +44,10 @@
                                 <td>{{ $p->name }}</td>
                                 <td>Rp. {{number_format($p->price)}}</td>
                                 <td>
-                                    <form action="#" method="">
+                                    <form action="{{ url('list') }}/{{ $p->id }}" method="post">
                                         @csrf
                                         {{ method_field('DELETE') }}
-                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Do you want to remove this item from the cart?');"><i class="fa fa-trash"></i></button>
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Do you want to remove this item from the list?');"><i class="fa fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>

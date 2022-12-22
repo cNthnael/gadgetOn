@@ -34,10 +34,13 @@
                                                 <p>{{ $detail->desc }}</p>
 
                                                     <form action="{{ url(('detail')) }}/{{ $detail->id }}" method="post">
-                                                        <h6>Quantity : </h6>
                                                     @csrf
-                                                    <button href="#" class="btn btn-success me-2">Update Detail</button>
-                                                    <button href="#" class="btn btn-danger" onclick="return confirm('Do you want to remove product?');">Delete Phone</button>
+                                                        <button href="#" class="btn btn-success me-2">Update Detail</button>
+                                                    </form>
+                                                    <form action="{{ url('list') }}/{{ $detail->id }}" method="post">
+                                                        @csrf
+                                                        {{ method_field('DELETE') }}
+                                                        <button type="submit" class="btn btn-danger btn" onclick="return confirm('Do you want to remove this item from the list?');">Delete Phone</button>
                                                     </form>
                                                 </tbody>
                                             </table>

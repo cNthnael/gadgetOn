@@ -26,5 +26,7 @@ Route::get('history', [\App\Http\Controllers\HistoryController::class, 'index'])
 
 Route::get('list', [\App\Http\Controllers\ProductController::class, 'list'])->name('list');
 Route::get('create', [\App\Http\Controllers\ProductController::class, 'create'])->name('create');
+Route::post('create/product', [\App\Http\Controllers\ProductController::class, 'store'])->name('store');
+Route::delete('list/{id}', [\App\Http\Controllers\ProductController::class, 'destroy']);
 
 

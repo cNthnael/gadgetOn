@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductFormRequest;
 use App\Models\Cart;
 use App\Models\Product;
 use App\Models\Transaction;
@@ -83,15 +84,35 @@ class ProductController extends Controller
         return view('admin.create', compact('products'));
     }
 
-    public function store()
+    public function store(ProductFormRequest $request)
     {
+        $data = $request->validated();
 
+        $products = Product::query()->create([
+            'name' => $data['name'],
+            'release' => $data['release'],
+            'desc' => $data['desc'],
+            'price' => $data['price'],
+            'image_path' => $data['image_path'],
+        ]);
+
+        Alert::success('Added to list!', 'New product has been added to list.');
+        return redirect('list');
     }
 
     public function list()
     {
         $products = Product::all();
         return view('admin.list', compact('products'));
+    }
+
+    public function destroy($id)
+    {
+        $products = Product::query()->where('id', $id)->first();
+
+        $products->delete();
+        Alert::error('Removed from list!', 'Your item has been removed from the list.');
+        return redirect('list');
     }
 
     public function delete($id)
