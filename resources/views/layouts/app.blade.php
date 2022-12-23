@@ -173,18 +173,18 @@
         <main class="py-4">
             @yield('content')
         </main>
-            <footer class="d-flex flex-wrap justify-content-between align-items-center mt-4 py-3 border-top">
+            <footer class="bg-danger d-flex flex-wrap justify-content-between align-items-center mt-4 py-3 border-top">
                 <div class="col-md-4 d-flex align-items-center">
                     <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
                         <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
                     </a>
-                    <span class="mb-3 mb-md-0 text-muted">© 2022 GadgetOn, Inc</span>
+                    <span class="mb-3 mb-md-0 text-light">© 2022 GadgetOn, Inc</span>
                 </div>
 
-                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                    <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
-                    <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
-                    <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+                <ul class="nav col-md-4 me-4 justify-content-end list-unstyled d-flex">
+                    <li class="ms-3"><a class="text-light text-decoration-none" href="https://www.twitter.com">Twitter</a></li>
+                    <li class="ms-3"><a class="text-light text-decoration-none" href="https://www.facebook.com">Facebook</a></li>
+                    <li class="ms-3"><a class="text-light text-decoration-none" href="https://www.instagram.com">Instagram</a></li>
                 </ul>
             </footer>
     </div>

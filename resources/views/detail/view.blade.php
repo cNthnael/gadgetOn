@@ -97,7 +97,8 @@
                     </div>
                 </div>
             @endif
-        @elseguest()<div class="container mt-4 mb-4">
+        @elseguest()
+            <div class="container mt-4 mb-4">
             <div class="col-md-12">
                 <a href="{{ '/' }}" class="btn btn-danger mb-3"><i class="fa fa-arrow-left"></i> Back</a>
             </div>
@@ -115,7 +116,7 @@
                         <div class="card-body">
                             <div class="row d-flex justify-content-center">
                                 <div class="col-md-6 ">
-                                    <img src="/upload/{{ $detail->image_path }} class="rounded mx-auto d-block" width="100%" alt="...">
+                                    <img src="/upload/{{ $detail->image_path }}" class="rounded mx-auto d-block" width="100%" alt="...">
                                 </div>
                                 <div class="col-md-6">
                                     <h4>{{ $detail->name }}</h4>
