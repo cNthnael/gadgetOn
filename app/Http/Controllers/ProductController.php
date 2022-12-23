@@ -84,16 +84,25 @@ class ProductController extends Controller
         return view('admin.create', compact('products'));
     }
 
-    public function store(ProductFormRequest $request)
+    public function store(Request $request)
     {
-        $data = $request->validated();
+        $this->validate($request, [
+            'name' => 'required',
+            'release' => 'required',
+            'desc' => 'required',
+            'price' => 'required',
+            'image_path' => 'required|mimes:jpg,jpeg,png',
+        ]);
 
-        $products = Product::query()->create([
-            'name' => $data['name'],
-            'release' => $data['release'],
-            'desc' => $data['desc'],
-            'price' => $data['price'],
-            'image_path' => $data['image_path'],
+        $file_name = $request->file('image_path')->getClientOriginalName();
+        $image = $request->image_path->storeAs('upload', $file_name);
+
+        $data = Product::query()->create([
+            'name' => $request['name'],
+            'release' => $request['release'],
+            'desc' => $request['desc'],
+            'price' => $request['price'],
+            'image_path' => $image
         ]);
 
         Alert::success('Added to list!', 'New product has been added to list.');

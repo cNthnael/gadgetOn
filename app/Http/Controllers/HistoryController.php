@@ -20,4 +20,13 @@ class HistoryController extends Controller
 
         return view('history.index', compact('transact'));
     }
+
+    public function detail($id)
+    {
+        $transact = Transaction::query()->where('id', $id)->first();
+        $cart = Cart::query()->where('transaction_id', $transact->id)->get();
+
+        return view('history.detail', compact('transact', 'cart'));
+
+    }
 }

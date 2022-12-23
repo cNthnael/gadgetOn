@@ -39,7 +39,7 @@
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>
-                                    <img src="{{ $p->image_path }}" width="150" alt="{{ $p->name }}">
+                                    <img src="/upload/{{ $p->image_path }}" width="150" alt="{{ $p->name }}">
                                 </td>
                                 <td>{{ $p->name }}</td>
                                 <td>Rp. {{number_format($p->price)}}</td>

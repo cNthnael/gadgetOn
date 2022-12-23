@@ -11,7 +11,7 @@
         @foreach($products as $p)
             <div class="col-md-4 mt-4">
                 <div class="card h-100" style="width: 100%" >
-                    <img src="{{ $p-> image_path }}" class="card-img-top" alt="...">
+                    <img src="/upload/{{ $p->image_path }}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{$p->name}}</h5>
                         <p class="card-text"><strong>Price : </strong> Rp. {{number_format($p->price)}}</p>

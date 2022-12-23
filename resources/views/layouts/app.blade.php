@@ -40,7 +40,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav me-auto">
-                                <a href="{{ route('list') }}" class="btn btn-success btn-sm text-white float-start">
+                                <a href="{{ route('list') }}" type="button" class="btn btn-sm btn-outline-success">
                                     Manage Product
                                 </a>
                         </ul>
@@ -115,7 +115,7 @@
                                             Profile
                                         </a>
 
-                                        <a class="dropdown-item" href="{{ url('history') }}">
+                                        <a class="dropdown-item" href="{{ route('history') }}">
                                             Checkout History
                                         </a>
 

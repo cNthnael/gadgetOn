@@ -25,6 +25,7 @@
                                     <th>No</th>
                                     <th>Checkout Date</th>
                                     <th>Total Price</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -34,6 +35,7 @@
                                         <td>{{ $no++ }}</td>
                                         <td>{{ \Carbon\Carbon::now()->format('d F Y') }}</td>
                                         <td>Rp. {{ number_format($t->total_price) }}</td>
+                                        <td><a href="{{ url('history') }}/{{ $t->id }}" class="btn btn-success btn-sm me-2"><i class="fa fa-info"></i></a></td>
                                     </tr>
                                 @endforeach
                             </tbody>

@@ -17,12 +17,14 @@ Route::get('detail/{id}', [\App\Http\Controllers\DetailController::class, 'index
 Route::post('detail/{id}', [\App\Http\Controllers\ProductController::class, 'checkout']);
 
 //Cart & Checkout
-Route::get('cart', [\App\Http\Controllers\ProductController::class, 'cart']);
+Route::get('cart/{id}', [\App\Http\Controllers\ProductController::class, 'cart'])->name('cart');
 Route::delete('cart/{id}', [\App\Http\Controllers\ProductController::class, 'delete']);
 Route::get('confirm-cart',[\App\Http\Controllers\ProductController::class, 'confirm']);
 
 //History
-Route::get('history', [\App\Http\Controllers\HistoryController::class, 'index']);
+Route::get('history', [\App\Http\Controllers\HistoryController::class, 'index'])->name('history');
+Route::get('history/{id}', [\App\Http\Controllers\HistoryController::class, 'detail']);
+
 
 Route::get('list', [\App\Http\Controllers\ProductController::class, 'list'])->name('list');
 Route::get('create', [\App\Http\Controllers\ProductController::class, 'create'])->name('create');

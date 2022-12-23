@@ -19,7 +19,6 @@
                     <div class="card-body">
                         <h3><i class="fa fa-shopping-cart"></i> Check Out </h3>
                         @if(!empty($transact))
-                            @foreach($cart as $c)
                                 <p align="right">Order Date : {{ \Carbon\Carbon::parse($transact->transaction_date)->format('d F Y') }}</p>
                                 <table class="table table-striped">
                                     <thead>
@@ -34,11 +33,11 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        <?php $no = 1; ?>
+                                    @foreach($cart as $c)
                                         <tr>
-                                            <td>{{ $no++ }}</td>
+                                            <td>{{ $loop->iteration }}</td>
                                             <td>
-                                                <img src="{{ $c->product->image_path }}" width="150" alt="{{ $c->product->name }}">
+                                                <img src="/upload/{{ $c->product->image_path }}" width="150" alt="{{ $c->product->name }}">
                                             </td>
                                             <td>{{ $c->product->name }}</td>
                                             <td>{{ $c->quantity }} unit</td>
@@ -52,6 +51,7 @@
                                                 </form>
                                             </td>
                                         </tr>
+                                    @endforeach
                                         <tr>
                                             <td colspan="5" align="right"><strong>Total Price :</strong></td>
                                             <td><strong>Rp. {{ number_format($transact->total_price) }}</strong></td>
@@ -63,7 +63,6 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                            @endforeach
                         @else
                             <div class="row justify-content-lg-center">
                                 <div class="col-md-12 mt-3 mb-2">

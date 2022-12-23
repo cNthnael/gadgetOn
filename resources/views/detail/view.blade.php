@@ -22,7 +22,7 @@
                                 <div class="card-body">
                                     <div class="row d-flex justify-content-center">
                                         <div class="col-md-6 ">
-                                            <img src="{{ $detail-> image_path }}" class="rounded mx-auto d-block" width="100%" alt="...">
+                                            <img src="/upload/{{ $detail->image_path }}" class="rounded mx-auto d-block" width="100%" alt="...">
                                         </div>
                                         <div class="col-md-6">
                                             <h4>{{ $detail->name }}</h4>
@@ -70,7 +70,7 @@
                                 <div class="card-body">
                                     <div class="row d-flex justify-content-center">
                                         <div class="col-md-6 ">
-                                            <img src="{{ $detail-> image_path }}" class="rounded mx-auto d-block" width="100%" alt="...">
+                                            <img src="/upload/{{ $detail->image_path }}" class="rounded mx-auto d-block" width="100%" alt="...">
                                         </div>
                                         <div class="col-md-6">
                                             <h4>{{ $detail->name }}</h4>
@@ -115,7 +115,7 @@
                         <div class="card-body">
                             <div class="row d-flex justify-content-center">
                                 <div class="col-md-6 ">
-                                    <img src="{{ $detail-> image_path }}" class="rounded mx-auto d-block" width="100%" alt="...">
+                                    <img src="/upload/{{ $detail->image_path }} class="rounded mx-auto d-block" width="100%" alt="...">
                                 </div>
                                 <div class="col-md-6">
                                     <h4>{{ $detail->name }}</h4>
