@@ -17,7 +17,6 @@
                         <p class="card-text"><strong>Price : </strong> Rp. {{number_format($p->price)}}</p>
                         <a href="{{ url('detail') }}/{{ $p->id }}" class="btn btn-danger">See Detail</i></a>
                     </div>
-
                 </div>
             </div>
         @endforeach

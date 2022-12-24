@@ -32,11 +32,7 @@
                                                 <br>
                                                 <h5>{{ $detail->release }}</h5>
                                                 <p>{{ $detail->desc }}</p>
-
-                                                    <form action="{{ url(('update')) }}/{{ $detail->id }}" method="post">
-                                                        @csrf
-                                                        <button class="btn btn-success me-2">Update Detail</button>
-                                                    </form>
+                                                    <a href="{{ url(('update')) }}/{{ $detail->id }}" class="btn btn-success me-2">Update Detail</a>
                                                     <form action="{{ url('list') }}/{{ $detail->id }}" method="post">
                                                         @csrf
                                                         {{ method_field('DELETE') }}

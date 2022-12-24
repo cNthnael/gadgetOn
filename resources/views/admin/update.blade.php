@@ -74,6 +74,9 @@
                             <div class="input-group mb-3 md-6">
                                 <div class="col-md-3">
                                     <input type="file" class="form-control" id="image_path" name="image_path" value="{{ $products->image_path }}">
+                                    <small id="passwordHelpInline" class="text-muted">
+                                        Add Image (required).
+                                    </small>
                                 </div>
                             </div>
 
