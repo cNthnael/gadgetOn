@@ -25,7 +25,7 @@
 
 </head>
 <body>
-    <div id="app">
+    <div id="app" class="bg-light">
         @auth()
             @if(\Illuminate\Support\Facades\Auth::user()->is_admin)
             <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">

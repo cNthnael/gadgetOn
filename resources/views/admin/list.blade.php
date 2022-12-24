@@ -25,11 +25,12 @@
                             </a>
                         </h3>
                         <table class="table">
-                            <thead class="bg-light text-dark">
+                            <thead class="bg-success text-light">
                             <tr>
                                 <td>No</td>
                                 <td>Image</td>
                                 <td>Product Name</td>
+                                <td>Release Date</td>
                                 <td>Price</td>
                                 <td style="width: 200px;">Action</td>
                             </tr>
@@ -42,9 +43,10 @@
                                     <img src="/upload/{{ $p->image_path }}" width="150" alt="{{ $p->name }}">
                                 </td>
                                 <td>{{ $p->name }}</td>
+                                <td>{{ $p->release }}</td>
                                 <td>Rp. {{number_format($p->price)}}</td>
                                 <td class="d-flex justify-content-center border-0">
-                                    <a href="{{ url(('detail')) }}/{{ $p->id }}" class="btn btn-success btn-sm me-2"><i class="fa fa-info"></i></a>
+                                    <a href="{{ url(('update')) }}/{{ $p->id }}" class="btn btn-success btn-sm me-2"><i class="fa fa-pencil-alt"></i></a>
                                     <form action="{{ url('list') }}/{{ $p->id }}" method="post">
                                         @csrf
                                         {{ method_field('DELETE') }}

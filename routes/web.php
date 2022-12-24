@@ -30,5 +30,7 @@ Route::get('list', [\App\Http\Controllers\ProductController::class, 'list'])->na
 Route::get('create', [\App\Http\Controllers\ProductController::class, 'create'])->name('create');
 Route::post('create/product', [\App\Http\Controllers\ProductController::class, 'store'])->name('store');
 Route::delete('list/{id}', [\App\Http\Controllers\ProductController::class, 'destroy']);
+Route::get('update/{id}', [\App\Http\Controllers\ProductController::class, 'update'])->name('edit');
+Route::post('update/{id}', [\App\Http\Controllers\ProductController::class, 'update_store']);
 
 

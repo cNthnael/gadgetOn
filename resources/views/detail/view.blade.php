@@ -4,7 +4,7 @@
     <div class="container">
         @auth()
             @if(\Illuminate\Support\Facades\Auth::user()->is_admin)
-                <div class="container mt-4 mb-4">
+                <div class="container mt-2 mb-4">
                     <div class="col-md-12">
                         <a href="{{ '/' }}" class="btn btn-danger mb-3"><i class="fa fa-arrow-left"></i> Back</a>
                     </div>
@@ -33,9 +33,9 @@
                                                 <h5>{{ $detail->release }}</h5>
                                                 <p>{{ $detail->desc }}</p>
 
-                                                    <form action="{{ url(('detail')) }}/{{ $detail->id }}" method="post">
+                                                    <form action="{{ url(('update')) }}/{{ $detail->id }}" method="post">
                                                         @csrf
-                                                        <button href="#" class="btn btn-success me-2">Update Detail</button>
+                                                        <button class="btn btn-success me-2">Update Detail</button>
                                                     </form>
                                                     <form action="{{ url('list') }}/{{ $detail->id }}" method="post">
                                                         @csrf
