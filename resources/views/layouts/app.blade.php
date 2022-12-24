@@ -25,10 +25,10 @@
 
 </head>
 <body>
-    <div id="app" class="bg-light">
+    <div id="app" class="bg-light" style="height: auto">
         @auth()
             @if(\Illuminate\Support\Facades\Auth::user()->is_admin)
-            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" style="position: fixed; width: 100%; left: 0; top: 0; z-index: 1;">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
                         <img src="{{ url('images/logo.png') }}" width="130" alt="">
@@ -72,7 +72,7 @@
                 </div>
             </nav>
             @else
-                <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+                <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" style="position: fixed; width: 100%; left: 0; top: 0; z-index: 1;">
                     <div class="container">
                         <a class="navbar-brand" href="{{ url('/') }}">
                             <img src="{{ url('images/logo.png') }}" width="130" alt="">
@@ -97,7 +97,7 @@
                                             $notif = \App\Models\Cart::query()->where('transaction_id', $checkout->id)->count();
                                         }
                                         ?>
-                                    <a class="nav-link" href="{{ url('cart') }}">
+                                    <a class="nav-link" href="{{ url('cart')}}/{{ \Illuminate\Support\Facades\Auth::user()->id }}">
                                         <i class="fa fa-shopping-cart fa-xl"></i>
                                         @if(!empty($notif))
                                             <span class="badge rounded-pill text-bg-danger">{{ $notif }}</span>
@@ -136,7 +136,7 @@
                 </nav>
             @endif
         @elseguest()
-            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm " style="position: fixed; width: 100%; left: 0; top: 0; z-index: 1;">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
                         <img src="{{ url('images/logo.png') }}" width="130" alt="">
@@ -170,10 +170,10 @@
                 </div>
             </nav>
         @endauth
-        <main class="py-4">
+        <main class="py-4 mb-6" style="margin-bottom: 60px; margin-top: 60px;width: 100%; height: 100%; padding-top: 102px">
             @yield('content')
         </main>
-            <footer class="bg-danger d-flex flex-wrap justify-content-between align-items-center mt-4 py-3 border-top">
+            <footer class="bg-danger d-flex flex-wrap justify-content-between align-items-center mt-4 py-3 border-down" style="position: page; width: 100%; left: 0; bottom: 0">
                 <div class="col-md-4 d-flex align-items-center">
                     <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
                         <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>

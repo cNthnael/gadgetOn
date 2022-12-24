@@ -14,7 +14,7 @@ Route::post('profile', [\App\Http\Controllers\ProfileController::class, 'edit'])
 
 //Product Detail
 Route::get('detail/{id}', [\App\Http\Controllers\DetailController::class, 'index'])->name('detail.view');
-Route::post('detail/{id}', [\App\Http\Controllers\ProductController::class, 'checkout']);
+Route::post('detail/{id}', [\App\Http\Controllers\ProductController::class, 'checkout'])->name('checkout');
 
 //Cart & Checkout
 Route::get('cart/{id}', [\App\Http\Controllers\ProductController::class, 'cart'])->name('cart');

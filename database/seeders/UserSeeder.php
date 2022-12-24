@@ -38,6 +38,17 @@ class UserSeeder extends Seeder
                 'is_admin' => false,
                 "created_at" => Carbon::now(),
                 "updated_at" => Carbon::now()
+            ],
+            [
+                'id' => 2,
+                'name' => 'Alvian Faiz',
+                'email' => 'alvian.hidayanto@binus.ac.id',
+                'password' => Hash::make('user123'),
+                'address' => 'Jakarta Selatan',
+                'gender' => 'male',
+                'is_admin' => false,
+                "created_at" => Carbon::now(),
+                "updated_at" => Carbon::now()
             ]
         ]);
     }

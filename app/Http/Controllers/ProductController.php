@@ -123,7 +123,7 @@ class ProductController extends Controller
         $cart->delete();
 
         Alert::error('Removed from Cart!', 'Your item has been removed from the cart.');
-        return redirect('cart');
+        return redirect('cart/{id}');
 
     }
 
@@ -171,7 +171,7 @@ class ProductController extends Controller
         $check->update();
 
         Alert::success('Added to Cart!', 'New item has been added to your cart.');
-        return redirect('cart');
+        return redirect('cart/{id}');
 
     }
 
@@ -182,7 +182,7 @@ class ProductController extends Controller
         $transact->update();
 
         Alert::success('Checkout Success!', "Thank You.");
-        return redirect('cart');
+        return redirect('cart/{id}');
 
     }
 }
