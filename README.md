@@ -17,9 +17,9 @@
 ### How to Run Project
 1. Create new database in **MySql** named [**gadget**]
 2. Run following command in terminal:
-- Run **composer install --ignore-platform-reqs** on terminal
-- Run **php artisan generate:key**
-- Run **php artisan migrate:fresh --seed**
+- **composer install --ignore-platform-reqs**
+- **php artisan generate:key**
+- **php artisan migrate:fresh --seed**
 5. At last, run **php artisan serve**
 6. You can either view as guest or use already added user to **login** as:
 - [**Admin**] => email:admin@admin.com; pass:admin123
