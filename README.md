@@ -10,7 +10,7 @@
 ## COMP6681001 – Web Programming
 ## GadgetOn - Project Lab
 
-<p align="center"><a><img src="https://i.ibb.co/KWgVpRk/logo.png" width="200"></a></p>
+<p align="center"><a><img src="https://i.ibb.co/KWgVpRk/logo.png" width="400"></a></p>
 
 **GadgetOn** is a newly phone shop in Indonesia that is made by an undergraduate computer science student who is trying to get extra pocket money. To help the business grow even faster, GadgetOn is planning to expand their business in online phone selling industry by creating a website for the shop. They are planning to put their store information and the products that they are currently selling to enable the customers to check and purchase GadgetOn products via online.
 
