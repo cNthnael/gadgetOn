@@ -16,7 +16,7 @@
 
 ### How to Run Project
 1. Create new database in **MySql** named [**gadget**]
-2. Run following command in terminal
+2. Run following command in terminal:
 - Run **composer install --ignore-platform-reqs** on terminal
 - Run **php artisan generate:key**
 - Run **php artisan migrate:fresh --seed**
