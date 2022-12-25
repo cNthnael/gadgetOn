@@ -27,6 +27,6 @@
 7. Or you can **register** as new user [**Non Admin**].
 
 ### Credit
-#### 2440099782 - Alvian Fiaz Hidayanto (alvian.hidayanto@binus.ac.id)
+#### 2440099782 - Alvian Faiz Hidayanto (alvian.hidayanto@binus.ac.id)
 #### 2440106365 - Carlo Nathanael Djobo (carlo.djobo@binus.ac.id)
 ## Bina Nusantara University - Jakarta
