@@ -25,7 +25,7 @@ Route::get('confirm-cart',[\App\Http\Controllers\ProductController::class, 'conf
 Route::get('history', [\App\Http\Controllers\HistoryController::class, 'index'])->name('history');
 Route::get('history/{id}', [\App\Http\Controllers\HistoryController::class, 'detail']);
 
-
+//Manage Product
 Route::get('list', [\App\Http\Controllers\ProductController::class, 'list'])->name('list');
 Route::get('create', [\App\Http\Controllers\ProductController::class, 'create'])->name('create');
 Route::post('create/product', [\App\Http\Controllers\ProductController::class, 'store'])->name('store');
