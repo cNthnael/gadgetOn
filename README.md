@@ -7,58 +7,26 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## COMP6681001 – Web Programming
+## GadgetOn - Project Lab
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<p align="center"><a><img src="https://i.ibb.co/KWgVpRk/logo.png" width="200"></a></p>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**GadgetOn** is a newly phone shop in Indonesia that is made by an undergraduate computer science student who is trying to get extra pocket money. To help the business grow even faster, GadgetOn is planning to expand their business in online phone selling industry by creating a website for the shop. They are planning to put their store information and the products that they are currently selling to enable the customers to check and purchase GadgetOn products via online.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### How to Run Project
+1. Create new database in **MySql** named [**gadget**]
+2. Run following command in terminal
+- Run **composer install --ignore-platform-reqs** on terminal
+- Run **php artisan generate:key**
+- Run **php artisan migrate:fresh --seed**
+5. At last, run **php artisan serve**
+6. You can either view as guest or use already added user to **login** as:
+- [**Admin**] => email:admin@admin.com; pass:admin123
+- [**Non Admin**] => email:alvian.hidayanto@binus.ac.id || email:carlo.djobo@binus.ac.id; pass: user123
+7. Or you can **register** as new user [**Non Admin**].
 
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Credit
+#### 2440099782 - Alvian Fiaz Hidayanto (alvian.hidayanto@binus.ac.id)
+#### 2440106365 - Carlo Nathanael Djobo (carlo.djobo@binus.ac.id)
+## Bina Nusantara University - Jakarta
