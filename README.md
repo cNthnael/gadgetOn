@@ -18,7 +18,7 @@
 1. Create new database in **MySql** named [**gadget**]
 2. Run following command in terminal:
 - **composer install --ignore-platform-reqs**
-- **php artisan generate:key**
+- **php artisan key:generate**
 - **php artisan migrate:fresh --seed**
 5. At last, run **php artisan serve**
 6. You can either view as guest or use already added user to **login** as:
