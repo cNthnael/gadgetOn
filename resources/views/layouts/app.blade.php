@@ -84,7 +84,12 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <!-- Left Side Of Navbar -->
                             <ul class="navbar-nav me-auto">
-
+                                <div class="container-fluid">
+                                    <form class="d-flex" action="{{ url('/') }}">
+                                        <input class="form-control me-2 col-md-6" style="width: 120%" type="search" name="search" placeholder="Search Phone..." aria-label="Search">
+                                        <button class="btn btn-outline-success" type="submit"><i class="fa fa-search"></i></button>
+                                    </form>
+                                </div>
                             </ul>
 
                             <!-- Right Side Of Navbar -->
@@ -148,6 +153,16 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav me-auto">
+                            <div class="container-fluid">
+                                <form class="d-flex" action="{{ url('/') }}">
+                                    <input class="form-control me-2 col-md-6" style="width: 120%" type="search" name="search" placeholder="Search Phone..." aria-label="Search">
+                                    <button class="btn btn-outline-success" type="submit"><i class="fa fa-search"></i></button>
+                                </form>
+                            </div>
+                        </ul>
+
+                        <!-- Center Of Navbar -->
+                        <ul>
 
                         </ul>
 

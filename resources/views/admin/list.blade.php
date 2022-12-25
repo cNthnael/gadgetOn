@@ -23,6 +23,10 @@
                             <a href="{{ route('create') }}" class="btn btn-success mt-1 btn-sm text-white float-end shadow-sm"><i class="fa fa-plus"></i>
                                 Add Product
                             </a>
+                            <form action="{{ url('list/') }}" class="d-flex col-md-3 float-end me-3">
+                                <input class="form-control me-2" type="search" name="search" placeholder="Search Phone..." aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit"><i class="fa fa-search"></i></button>
+                            </form>
                         </h3>
                         <table class="table">
                             <thead class="bg-success text-light">

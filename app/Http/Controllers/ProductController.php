@@ -50,9 +50,14 @@ class ProductController extends Controller
         return redirect('list');
     }
 
-    public function list()
+    public function list(Request $request)
     {
-        $products = Product::all();
+        if ($request->hasAny('search')){
+            $products = Product::query()->where('name', 'LIKE', '%' .$request->search. '%')->get();
+        } else {
+            $products = Product::all();
+        }
+
         return view('admin.list', compact('products'));
     }
 

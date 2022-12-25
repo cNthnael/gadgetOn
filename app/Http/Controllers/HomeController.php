@@ -22,9 +22,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::all();
+        if ($request->has('search')){
+            $products = Product::query()->where('name', 'LIKE', '%' .$request->search. '%')->get();
+        } else {
+            $products = Product::all();
+        }
+
         return view('home', compact('products'));
     }
 
