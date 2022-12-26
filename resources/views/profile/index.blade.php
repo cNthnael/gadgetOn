@@ -77,14 +77,13 @@
                                 @enderror
                             </div>
                         </div>
-                        @if(\Illuminate\Support\Facades\Auth::user()->is_admin)
+                        @if(!\Illuminate\Support\Facades\Auth::user()->is_admin)
                         <div class="row mb-3">
                             <label for="" class="col-md-3 col-form-label text-md-end">{{ __('Gender') }}</label>
                             <div class="col-md-2" action="#">
                                 <select class="form-control" name="gender" id="gender">
-                                    <option value=null>Choose...</option>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
+                                    <option {{ $user->gender == 'male' ? 'selected' : '' }} value="male">Male</option>
+                                    <option {{ $user->gender == 'female' ? 'selected' : '' }} value="female">Female</option>
                                 </select>
                             </div>
                         </div>
@@ -120,7 +119,7 @@
                             </div>
                         @endif
 
-                        @if(\Illuminate\Support\Facades\Auth::user()->is_admin)
+                        @if(!\Illuminate\Support\Facades\Auth::user()->is_admin)
                         <div class="row mb-3">
                             <label for="address" class="col-md-3 col-form-label text-md-end">{{ __('Address') }}</label>
 
@@ -159,7 +158,7 @@
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" >
                                 <small id="passwordHelpInline" class="text-muted">
-                                    Emptied 'Password' if nothing changed.
+                                    Emptied 'Password' if you dont changed the password.
                                 </small>
                             </div>
                         </div>
