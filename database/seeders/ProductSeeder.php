@@ -56,6 +56,26 @@ class ProductSeeder extends Seeder
                    "image_path" => "upload/samsung-galaxy-a33-5g-1.jpg",
                     "created_at" => null,
                     "updated_at" => null
+                ],
+                [
+                    "id" => 5,
+                    "name" => "Samsung S22 Ultra 5G",
+                    "release" => "2022, February 9",
+                    "desc" => "The Samsung Galaxy S22 Ultra is the headliner of the S22 series. It's the first S series phone to include Samsung's S Pen. Specifications are top-notch including 6.8-inch Dynamic AMOLED display with 120Hz refresh rate, Snapdragon 8 Gen 1 processor, 5000mAh battery, up to 12gigs of RAM, and 1TB of storage. In the camera department, a quad-camera setup is presented with two telephoto sensors.",
+                    "price" => 16499000,
+                    "image_path" => "upload/samsung-galaxy-s22-ultra-5g-3.jpg",
+                    "created_at" => null,
+                    "updated_at" => null
+                ],
+                [
+                    "id" => 6,
+                    "name" => "Samsung M53 5G",
+                    "release" => "2022, April 22",
+                    "desc" => "The Samsung Galaxy M53 5G comes with 6.7-inch AMOLED display with 120Hz refresh rate an MediaTek Dimensity 900 processor. Specs also include 5000mAH battery with 25W charging speed, Quad camera setup on the back with 108MO main sensor and 32MP front selfie camera.",
+                    "price" => 5099000,
+                    "image_path" => "upload/samsung-galaxy-m53-5g-1.jpg",
+                    "created_at" => null,
+                    "updated_at" => null
                 ]
             ]
 
