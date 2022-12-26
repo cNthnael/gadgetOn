@@ -77,7 +77,7 @@
                                 @enderror
                             </div>
                         </div>
-                        @if(!\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
+                        @if(\Illuminate\Support\Facades\Auth::user()->is_admin)
                         <div class="row mb-3">
                             <label for="" class="col-md-3 col-form-label text-md-end">{{ __('Gender') }}</label>
                             <div class="col-md-2" action="#">
@@ -90,7 +90,7 @@
                         </div>
                         @endif
 
-                        @if(\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
+                        @if(\Illuminate\Support\Facades\Auth::user()->is_admin)
                             <div class="row mb-3">
                                 <label for="email" class="col-md-3 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
@@ -120,7 +120,7 @@
                             </div>
                         @endif
 
-                        @if(!\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
+                        @if(\Illuminate\Support\Facades\Auth::user()->is_admin)
                         <div class="row mb-3">
                             <label for="address" class="col-md-3 col-form-label text-md-end">{{ __('Address') }}</label>
 
