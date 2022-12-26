@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Cart;
+use App\Models\Transaction;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,7 +18,9 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call([
             UserSeeder::class,
-            ProductSeeder::class
+            ProductSeeder::class,
+            TransactionSeeder::class,
+            CartSeeder::class
         ]);
     }
 }
